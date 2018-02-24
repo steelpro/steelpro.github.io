@@ -13,28 +13,28 @@ function checkData() {
 
 	if (firstName == "") {
 		var firstNameInput = document.getElementById("firstName");
-		firstNameInput.style.background = "red";
+		firstNameInput.style.background = "#FC2312";
 		firstNameInput.style.color = "white";
 		alert("Form content is either missing or incorrect. Please review.")
 		return false;
 	}
 	else if (lastName == "") {
 		var lastNameInput = document.getElementById("lastName");
-		lastNameInput.style.background = "red";
+		lastNameInput.style.background = "#FC2312";
 		lastNameInput.style.color="white";
 		alert("Form content is either missing or incorrect. Please review.")
 		return false;
 	}
 	else if (email == "" || !email.match(emailFormat)) {
 		var emailInput = document.getElementById("email");
-		emailInput.style.background = "red";
+		emailInput.style.background = "#FC2312";
 		emailInput.style.color = "white";
 		alert("Form content is either missing or incorrect. Please review.")
 		return false;
 	}
 	else if (phone == "" || !phone.match(phoneFormat)) {
 		var phoneInput = document.getElementById("phone");
-		phoneInput.style.background = "red";
+		phoneInput.style.background = "#FC2312";
 		phoneInput.style.color="white";
 		alert("Form content is either missing or incorrect. Please review.")
 		return false;		
@@ -55,24 +55,30 @@ function checkData() {
 function checkContact() {
 	var email = document.getElementById("emailPost").value;
 	var subject = document.getElementById("subject").value;
-	
+	var text = document.getElementById("contactMessage").value;
 	var emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 	if (subject == "") {
 		var subjectInput = document.getElementById("subject");
-		subjectInput.style.background = "red";
+		subjectInput.style.background = "#FC2312";
 		subjectInput.style.color = "white";
 		alert("Subject field is empty. Please review.")
 		return false;
 	}
 	else if (email == "" || !email.match(emailFormat)) {
-		var emailInput = document.getElementById("emailPost");
-		emailInput.style.background = "red";
+		var emailInput = document.getElementById("contactMessage");
+		emailInput.style.background = "#FC2312";
 		emailInput.style.color = "white";
-		alert("Email field is either empty or incorrect. Please review");
+		alert("Email field is either empty or incorrect. Please review.");
 		return false;
 	}
-
+	else if (text == "") {
+		var textArea = document.getElementById("contactMessage");
+		textArea.style.background = "#FC2312";
+		textArea.style.color = "white";
+		alert("Message field is blank. Please review.");
+		return false;
+	}
 	else {
 		if (confirm('Are you sure you want to send this message?')) {
 			alert('Mail Will Now Open');
