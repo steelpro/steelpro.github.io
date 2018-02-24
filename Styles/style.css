@@ -624,15 +624,8 @@ textArea:active, textArea:focus {
   float: right;
   display: none;
 }
-.insta {
-  width: 300px;
-  height: 520px;
-  margin-right: 2%;
-  margin-bottom: 6%;
-  float: right;
-}
 .social {
-  margin-right: 3%;
+  margin-right: 15%;
 }
 
 table {
