@@ -65,8 +65,8 @@ h2 {
   font-size: 18px;
   width: 100px;
   margin-top: 20px;
-  margin-left: 80px;
-  margin-right: 80px;
+  margin-left: 60px;
+  margin-right: 60px;
   padding: 3px;
   align-content: center;
   display: inline-block;  
@@ -266,9 +266,7 @@ a {
   font-size: 28px;
   border: none;
   letter-spacing: .3em;
-  width: auto;
   margin: 0 auto;
-  margin-bottom: 10px;
   text-align: center;
   text-decoration: underline;
   display: inline;
@@ -342,16 +340,13 @@ div.menu img {
   margin-bottom: 80px;
   padding: 10px;
   float: left;
-  display: inline-block;
 }
 
 .menu h4.menu {
   font-size: 28px;
   font-weight: bold;
   letter-spacing: .3em;
-  width: 56%;
   margin: 0 auto;
-  margin-bottom: 10px;
   text-align: center;
   text-decoration: underline;
   display: inline;
@@ -479,7 +474,6 @@ iframe {
   margin: 10px;
   padding: 4px;
   float: right;
-  display: inline-block;
 }
 
 .socialPlatforms {
@@ -490,7 +484,6 @@ iframe {
   padding: 10px;
   padding-right: 0;
   float: right;
-  display: inline-block;
 }
 
 .socialPlatforms h4 {
@@ -562,7 +555,6 @@ iframe {
 }
 
 .contactInfo p, .contactInfo img {
-  vertical-align: left;
   display: block;
 }
 
@@ -597,12 +589,23 @@ iframe {
   margin-top: -15px;
 }
 
-.contactInfo textArea {
+.contactInfo textArea, #applyTextArea {
   font-weight: bold;
   border: 4px solid #026342;
   border-radius: 10px;
   width: 45%;
   margin-bottom: 30px;
+}
+
+.contactInfo textArea {
+  font-size: 20px;
+  font-weight: bold;
+  height: 200px;
+  margin: 10px;
+  margin-left: 20px;
+  padding: 2px;
+  float: left;
+  display: block;
 }
 
 textArea:hover, textArea:focus, 
@@ -671,7 +674,6 @@ table tr:nth-child(odd) {
   margin-top: 5px;
   padding: 4px;
   float: right;
-  vertical-align: middle;
   display: block;
 }
 
@@ -737,7 +739,7 @@ input:focus, input:hover {
   width: 65%;
   display: block;
 }
-textArea {
+#applyTextArea {
   font-size: 20px;
   font-weight: bold;
   width: 65%;

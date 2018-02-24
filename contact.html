@@ -12,6 +12,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="Styles/style.css">
+    <script type="text/javascript" src="script.js"></script>
     <div class="top">
       <title>Starbucks Kiosk</title>
 
@@ -85,12 +86,15 @@
             <a class="twitter-timeline" data-width="300" data-height="590" border="1px solid black" href="https://twitter.com/Starbucks?ref_src=twsrc%5Etfw">Tweets by Starbucks</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
           </div>
                     
-          <textarea rows="4" cols="50" name="questions">Enter text here...</textarea>
+          <textarea rows="4" cols="50" name="questions" id="contactMessage" placeholder="Enter text here..."></textarea>
           
           <label for="emailPost" id="emailLabel">Email Address:</label>
           <input type="email" id="emailPost" name="emailPost"><br>
+
+          <label for="subject" id="subjectLabel">Subject:</label>
+          <input type="text" id="subject" name="subject"><br>
           
-          <button id="submit">Submit Question</button>            
+          <input type="submit" id="submit" value="Send Message" onclick="return checkContact();"/>    
         </div>  
         
         <div id="table">
