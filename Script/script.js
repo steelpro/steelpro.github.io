@@ -66,7 +66,7 @@ function checkContact() {
 		return false;
 	}
 	else if (email == "" || !email.match(emailFormat)) {
-		var emailInput = document.getElementById("contactMessage");
+		var emailInput = document.getElementById("emailPost");
 		emailInput.style.background = "#FC2312";
 		emailInput.style.color = "white";
 		alert("Email field is either empty or incorrect. Please review.");
