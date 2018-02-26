@@ -37,7 +37,8 @@ div.title img:hover {
   -webkit-animation: pop 0.5s linear 1;
 }
 @keyframes pop{
-  50%  { transform: scale(1.3); }
+  50%  { transform: scale(1.3);
+        -webkit-transform: scale(1.3); }
 }
 
 h2 {
@@ -91,6 +92,14 @@ h2 {
 }
 .sitenavigation a:visited {
   color: #026342;
+}
+
+.sitenavigation a:active {
+  opacity: .8;
+  transform: scale(1.05) translateY(-4px);
+  -webkit-transform: scale(1.05) translateY(-4px);
+  transition: .2s ease-out;
+  -webkit-transition: .2s ease-out;
 }
 
 .sitenavigation a.other:hover {
@@ -168,6 +177,17 @@ p {
 
 a {
   text-decoration: none;
+}
+
+#toTop {
+  width: 40px;
+  position: fixed;
+  right: 25px;
+  bottom: 90px;
+  opacity: 0;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  
 }
 /** END BODY CONTENT **/
 
