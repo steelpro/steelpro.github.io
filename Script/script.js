@@ -21,9 +21,7 @@ $(document).ready(function () {
 		}
 	});
 	$('#toTop').click(function () {
-		$('body,html').animate({
-			scrollTop: 0
-		}, 800);
+		$('body,html').animate( {scrollTop: 0}, 800);
 		return false;
 	});
 });
@@ -45,28 +43,28 @@ function checkData() {
 		var firstNameInput = document.getElementById("firstName");
 		firstNameInput.style.background = "#FC2312";
 		firstNameInput.style.color = "white";
-		alert("Form content is either missing or incorrect. Please review.")
+		alert("Form content is either missing or incorrect. Please review.");
 		return false;
 	}
 	else if (lastName == "") {
 		var lastNameInput = document.getElementById("lastName");
 		lastNameInput.style.background = "#FC2312";
 		lastNameInput.style.color="white";
-		alert("Form content is either missing or incorrect. Please review.")
+		alert("Form content is either missing or incorrect. Please review.");
 		return false;
 	}
 	else if (email == "" || !email.match(emailFormat)) {
 		var emailInput = document.getElementById("email");
 		emailInput.style.background = "#FC2312";
 		emailInput.style.color = "white";
-		alert("Form content is either missing or incorrect. Please review.")
+		alert("Form content is either missing or incorrect. Please review.");
 		return false;
 	}
 	else if (phone == "" || !phone.match(phoneFormat)) {
 		var phoneInput = document.getElementById("phone");
 		phoneInput.style.background = "#FC2312";
 		phoneInput.style.color="white";
-		alert("Form content is either missing or incorrect. Please review.")
+		alert("Form content is either missing or incorrect. Please review.");
 		return false;		
 	}
 	else {
