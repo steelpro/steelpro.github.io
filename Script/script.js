@@ -26,6 +26,69 @@ $(document).ready(function () {
 	});
 });
 
+function searchMenu() {
+	var input = document.getElementById("searchBar").value;
+	input = input.toUpperCase();
+	var searchBar = document.getElementById("searchBar");
+
+	
+	if (input == "") {
+		searchBar.style.background = "#FC2312";
+		searchBar.style.color = "white";
+		alert("Please specify the drink, pastry, or coffee roast you wish to find.")
+	}
+	else {
+		searchBar.style.background = "#026342";
+		searchBar.style.color = "white";
+
+		var coffeeList = document.getElementById("coffee");
+		var coffeeItem = coffeeList.getElementsByTagName("li");
+
+		var latteList = document.getElementById("latte");
+		var latteItem = latteList.getElementsByTagName("li");
+
+		var icedList = document.getElementById("iced");
+		var icedItem = icedList.getElementsByTagName("li");
+
+		var frappList = document.getElementById("frapp");
+		var frappItem = frappList.getElementsByTagName("li");
+
+		var pastryList = document.getElementById("pastry");
+		var pastryItem = pastryList.getElementsByTagName("li");
+
+		if (findInMenu(input, coffeeItem))
+			alert("We have that coffee roast available!");
+		else if (findInMenu(input, latteItem)) 
+			alert("We have that latte available!");
+		else if (findInMenu(input, icedItem)) 
+			alert("We have that iced drink available!");
+		else if (findInMenu(input, frappItem)) 
+			alert("We have that frappuccino available!");
+		else if (findInMenu(input, pastryItem)) 
+			alert("We have that pastry available!");
+		else 
+			alert("Sorry, we do not have what you are looking for. Please confirm it is spelled correctly.")	
+	}	
+}
+
+function findInMenu(input, list) {
+	var found = 0;
+
+	for (var i = 0; i < list.length; i++) {
+		if (input == list[i].innerText) {
+			found = 1;
+			break;
+		}
+		else
+			found = 0;
+	}
+
+	if (found == 1) 
+		return true;
+	else 
+		return false;
+}
+
 function checkData() {
 	
 	var firstName = document.getElementById("firstName").value;

@@ -20,7 +20,9 @@
       <title>Starbucks Kiosk</title>
 
       <div class="title">
-        <img id="sbuxLogo" src="Images/starbucksLogoHead2.png" alt="Starbucks Logo" align="middle" width=200px height=200px> 
+        <a href="index.html">
+          <img id="sbuxLogo" src="Images/starbucksLogoHead2.png" alt="Starbucks Logo" align="middle" width=200px height=200px> 
+        </a>
         <h1 id="top">at <span style=color:#FC2312>Safeway</span></h1>
         <h2>"It's a good day to have a good day!"</h2>
       </div>  
@@ -47,116 +49,124 @@
         
         <section class="menu">
           <h3>Take a Look at Our Menu!</h3>
-          
-          <div class="coffee">
-            <img src="Images/menuCoffee.jpg" id="coffeePic" width="400" alt="Cup of Coffee">
-            
-            <ul class="coffeeMenu">
-              <h4 class=menu>Coffee Roasts:</h4>
-              <li>WILLOW BLEND</li>
-              <span>Crisp and Citrus</span>
-              <li>VERANDA BLEND</li>
-              <span>Mellow and Soft</span>
-              <li>BREAKFAST BLEND</li>
-              <span>Bright and Tangy</span>
-              <li>PIKE PLACE ROAST</li>
-              <span>Smooth and Balanced</span>
-              <li>KENYA</li>
-              <span>Juicy and Complex</span>
-              <li>GUATEMALA ANTIGUA</li>
-              <span>Cocoa and Subtle Spice</span>
-              <li>ETHIOPIA</li>
-              <span>Citrus and Dark Cocoa</span>
-              <li>HOUSE BLEND</li>
-              <span>Rich and Lively</span>
-              <li>ORGANIC YUKON BLEND</li>
-              <span>Hearty and Well-rounded</span>
-            </ul>
-          </div>
-          
-          <div class="latte">
-            <img src="Images/menuLatte.jpg" id="lattePic" width="400" alt="Latte Cup">
-            
-            <ul class="latteMenu">
-              <h4 class="menu">Latte Flavors:</h4>
-              <li>VANILLA</li>
-              <li>CARAMEL</li>
-              <li>MOCHA</li>
-              <li>WHITE CHOCOLATE MOCHA</li>
-              <li>FLAT WHITE</li>
-              <li>HAZELNUT</li>
-              <li>TOFFEENUT</li>
-              <li>CINNAMON DOCLE</li>
-              <li>FRENCH VANILLA</li>
-              <li>CARAMEL MACCHIATO</li>
-              <li>GREEN TEA</li>
-              <li>CHAI TEA</li>
-              <br>
-              <span>*All lattes come hot or iced</span>
-            </ul>
-          </div>
-          
-          <div class="iced">
-            <img src="Images/menuIced.png" id="icedPic" width="400" alt="Iced Drink">
-            
-            <ul class="icedMenu">
-              <h4 class="menu">Iced Drinks:</h4>
-              <li>ICED COFFEE</li>
-              <li>ICED COLD BREW</li>
-              <li>VANILLA SWEET CREAM COLD BREW</li>
-              <li>BLACK TEA</li>
-              <li>BLACK TEAM LEMONADE</li>
-              <li>PASSION FRUIT TEA</li>
-              <li>GREEN TEA</li>
-              <li>GREEN TEA LEMONADE</li>
-              <li>WHITE TEA</li>
-              <li>STARBERRY ACAI REFRESHER</li>
-              <li>VERY BERRY HIBISCUS REFRESHER</li>
-              <li>COOL LIME REFRESHER</li>
-              <br>
-              <span>*All iced drinks can be sweatened</span>
-            </ul>
-          </div>
-          
-          <div class="frapp">
-            <img src="Images/menuFrapp.jpg" id="frappPic" width="400" alt="Frapp Drink">
 
-            <ul class="frappMenu">
-              <h4 class="menu">Frappuccinos:</h4>
-              <li>COFFEE</li>
-              <li>VANILLA</li>
-              <li>CARAMEL</li>
-              <li>VANILLA BEAN CREME</li>
-              <li>DOUBLE CHOCOLATE CHIP</li>
-              <li>MOCHA</li>
-              <li>WHITE CHOCOLATE MOCHA</li>
-              <li>JAVA CHIP</li>
-              <li>STRAWBERRIES 'N CREME</li>
-              <li>GREEN TEA</li>
-            </ul>
-          </div>   
-      
-          <div class="pastry">
-            <img src="Images/menuPastry.jpg" id="pastryPic" width="400" alt="Croissant">
+          <section class="menuSearch">
+            <label id="searchLabel">Wondering if we have something specific? Search it here!</label>
+            <input type="text" id="searchBar" placeholder="Search for your favorite drink, pastry, or coffee roast...">
+            <input type="submit" id="searchBtn" value="Find it!" onclick="return searchMenu();"/>    
+          </section>
 
-            <ul class="pastryMenu">
-              <h4 class="menu">Pastries:</h4>
-              <li>BUTTER CROISSANT</li>
-              <li>CHOCOLATE CROISSANT</li>
-              <li>BLUEBERRY MUFFIN</li>
-              <li>BLUEBERRY SCONE</li>
-              <li>CLASSIC COFFEE CAKE</li>
-              <li>CHEESE DANISH</li>
-              <li>BANANA NUT LOAF CAKE</li>
-              <li>PUMPKIN LOAF CAKE</li>
-              <li>ICED LEMON LOAF CAKE</li>
-              <li>BIRTHDAY CAKE POP</li>
-              <li>CHOCOLATE CAKE POP</li>
-              <li>COOKIE CRUMBLE BAR</li>
-              <li>CHOCOLATE CHIP BROWNIE</li>
-              <li>CHOCOLATE CHIP COOKIE</li>
-            </ul>
-          </div>          
+          <section id="menuDrinks">
+            <div class="coffee">
+              <img src="Images/menuCoffee.jpg" id="coffeePic" width="400" alt="Cup of Coffee">
+              
+              <ul class="coffeeMenu" id="coffee">
+                <h4 class=menu>Coffee Roasts:</h4>
+                <li>WILLOW BLEND</li>
+                <span>Crisp and Citrus</span>
+                <li>VERANDA BLEND</li>
+                <span>Mellow and Soft</span>
+                <li>BREAKFAST BLEND</li>
+                <span>Bright and Tangy</span>
+                <li>PIKE PLACE ROAST</li>
+                <span>Smooth and Balanced</span>
+                <li>KENYA</li>
+                <span>Juicy and Complex</span>
+                <li>GUATEMALA ANTIGUA</li>
+                <span>Cocoa and Subtle Spice</span>
+                <li>ETHIOPIA</li>
+                <span>Citrus and Dark Cocoa</span>
+                <li>HOUSE BLEND</li>
+                <span>Rich and Lively</span>
+                <li>ORGANIC YUKON BLEND</li>
+                <span>Hearty and Well-rounded</span>
+              </ul>
+            </div>
+            
+            <div class="latte">
+              <img src="Images/menuLatte.jpg" id="lattePic" width="400" alt="Latte Cup">
+              
+              <ul class="latteMenu" id="latte">
+                <h4 class="menu">Latte Flavors:</h4>
+                <li>VANILLA LATTE</li>
+                <li>CARAMEL LATTE</li>
+                <li>MOCHA LATTE</li>
+                <li>WHITE CHOCOLATE MOCHA LATTE</li>
+                <li>FLAT WHITE</li>
+                <li>HAZELNUT LATTE</li>
+                <li>TOFFEENUT LATTE</li>
+                <li>CINNAMON DOCLE LATTE</li>
+                <li>FRENCH VANILLA LATTE</li>
+                <li>CARAMEL MACCHIATO</li>
+                <li>GREEN TEA LATTE</li>
+                <li>CHAI TEA LATTE</li>
+                <br>
+                <span>*All lattes come hot or iced</span>
+              </ul>
+            </div>
+            
+            <div class="iced" id="iced">
+              <img src="Images/menuIced.png" id="icedPic" width="400" alt="Iced Drink">
+              
+              <ul class="icedMenu">
+                <h4 class="menu">Iced Drinks:</h4>
+                <li>ICED COFFEE</li>
+                <li>ICED COLD BREW</li>
+                <li>VANILLA SWEET CREAM COLD BREW</li>
+                <li>BLACK TEA</li>
+                <li>BLACK TEAM LEMONADE</li>
+                <li>PASSION FRUIT TEA</li>
+                <li>GREEN TEA</li>
+                <li>GREEN TEA LEMONADE</li>
+                <li>WHITE TEA</li>
+                <li>STARBERRY ACAI REFRESHER</li>
+                <li>VERY BERRY HIBISCUS REFRESHER</li>
+                <li>COOL LIME REFRESHER</li>
+                <br>
+                <span>*All iced drinks can be sweatened</span>
+              </ul>
+            </div>
+            
+            <div class="frapp" id="frapp">
+              <img src="Images/menuFrapp.jpg" id="frappPic" width="400" alt="Frapp Drink">
+
+              <ul class="frappMenu">
+                <h4 class="menu">Frappuccinos:</h4>
+                <li>COFFEE FRAPPUCCINO</li>
+                <li>VANILLA FRAPPUCCINO</li>
+                <li>CARAMEL FRAPPUCCINO</li>
+                <li>VANILLA BEAN CREME FRAPPUCCINO</li>
+                <li>DOUBLE CHOCOLATE CHIP FRAPPUCCINO</li>
+                <li>MOCHA FRAPPUCCINO</li>
+                <li>WHITE CHOCOLATE MOCHA FRAPPUCCINO</li>
+                <li>JAVA CHIP FRAPPUCCINO</li>
+                <li>STRAWBERRIES 'N CREME FRAPPUCCINO</li>
+                <li>GREEN TEA FRAPPUCCINO</li>
+              </ul>
+            </div>   
+        
+            <div class="pastry">
+              <img src="Images/menuPastry.jpg" id="pastryPic" width="400" alt="Croissant">
+
+              <ul class="pastryMenu" id="pastry">
+                <h4 class="menu">Pastries:</h4>
+                <li>BUTTER CROISSANT</li>
+                <li>CHOCOLATE CROISSANT</li>
+                <li>BLUEBERRY MUFFIN</li>
+                <li>BLUEBERRY SCONE</li>
+                <li>CLASSIC COFFEE CAKE</li>
+                <li>CHEESE DANISH</li>
+                <li>BANANA NUT LOAF CAKE</li>
+                <li>PUMPKIN LOAF CAKE</li>
+                <li>ICED LEMON LOAF CAKE</li>
+                <li>BIRTHDAY CAKE POP</li>
+                <li>CHOCOLATE CAKE POP</li>
+                <li>COOKIE CRUMBLE BAR</li>
+                <li>CHOCOLATE CHIP BROWNIE</li>
+                <li>CHOCOLATE CHIP COOKIE</li>
+              </ul>
+            </div>   
+          </section>       
         </section>
 
         <a href="#top">

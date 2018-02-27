@@ -312,7 +312,7 @@ a {
   letter-spacing: .3em;
   margin: 0 auto;
   text-align: center;
-  display: inline;
+  display: inline-block;
 }
 
 .spring img, .summer img, 
@@ -364,6 +364,43 @@ a {
 
 
 /** MENU CONTENT **/
+.menuSearch {
+  display: inline-block;
+}
+
+#searchLabel {
+  margin-left: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#searchBar {
+  float: left;
+  margin-left: 30px;
+}
+
+#searchBtn {
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px black;
+  background: #026342;
+  border-radius: 5px;
+  width: 200px;
+  height: 50px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  display: inline-block;
+}
+
+#searchBtn:hover {
+  color: #026342;
+  background: white;
+  box-shadow: 5px 5px 5px black;
+  text-shadow: none;
+  transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+}
+
 .menu img {
   border: 8px solid #f4a460;
   border-radius: 10px;
@@ -380,7 +417,7 @@ a {
   letter-spacing: .3em;
   margin: 0 auto;
   text-align: center;
-  display: inline;
+  display: inline-block;
 }
 
 .coffee ul, .latte ul,
