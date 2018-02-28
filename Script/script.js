@@ -1,3 +1,9 @@
+/**
+  Zachary Betters
+  Starbucks Kiosk Website v3.0
+  Last Modified: 2/27/2018
+**/
+
 $(document).ready(function () {
 	var contentOffset = getOffset();
 
@@ -6,19 +12,13 @@ $(document).ready(function () {
 		return topOffSet.top;
 	}
 
-	$(window).resize(function() {
-		contentOffset = getOffset();
-	});
+	$(window).resize(function() { contentOffset = getOffset(); });
 
 	$(window).scroll(function() {
 		var windowTop = $(window).scrollTop();
 
-		if (windowTop > contentOffset) {
-			$("#toTop").css("opacity", "100");
-		} 
-		else {
-			$("#toTop").css("opacity", "0");
-		}
+		if (windowTop > contentOffset) { $("#toTop").css("opacity", "100"); } 
+		else { $("#toTop").css("opacity", "0"); }
 	});
 	$('#toTop').click(function () {
 		$('body,html').animate( {scrollTop: 0}, 800);
@@ -75,18 +75,17 @@ function findInMenu(input, list) {
 	var found = 0;
 
 	for (var i = 0; i < list.length; i++) {
-		if (input == list[i].innerText) {
-			found = 1;
-			break;
-		}
-		else
-			found = 0;
+
+		var value = list[i].innerText.split(" ");
+
+		if (list[i].innerText == input.trim()) { found = 1;	break; } 
+		else if (value[0] == input.trim()) { found = 1; break; }
+		else if (value[1] == input.trim()) { fount = 1; break; }
+		else { found = 0; }
 	}
 
-	if (found == 1) 
-		return true;
-	else 
-		return false;
+	if (found == 1) return true;
+	else return false;
 }
 
 function checkData() {
@@ -133,12 +132,8 @@ function checkData() {
 	else {
 		var fullName = lastName + ", " + firstName;
 		
-		if (confirm('Are you sure you want to submit this information to apply for job?')) {
-			alert('Information Sent');
-		}
-		else {
-			alert('Action Canceled');
-		}
+		if (confirm('Are you sure you want to submit this information to apply for job?')) { alert('Information Sent'); }
+		else { alert('Action Canceled'); }
 		return true;
 	}	
 }
@@ -175,10 +170,8 @@ function checkContact() {
 			alert('Mail Will Now Open');
 			var message = document.getElementById("contactMessage").value;
 			writeFile(subject, message);
-		}
-		else {
-			alert('Action Canceled');
-		}
+		} 
+		else { alert('Action Canceled'); }
 		return true;
 	}
 }

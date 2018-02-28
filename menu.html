@@ -52,7 +52,8 @@
 
           <section class="menuSearch">
             <label id="searchLabel">Wondering if we have something specific? Search it here!</label>
-            <input type="text" id="searchBar" placeholder="Search for your favorite drink, pastry, or coffee roast...">
+            <input type="text" id="searchBar" onkeydown = "if (event.keyCode == 13)
+            document.getElementById('searchBtn').click()" placeholder="Search for your favorite drink, pastry, or coffee roast...">
             <input type="submit" id="searchBtn" value="Find it!" onclick="return searchMenu();"/>    
           </section>
 
