@@ -60,6 +60,51 @@ h2 {
 
 
 
+/** NAV BUTTON CONTENT **/
+.navButton {
+  margin-left: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.navDropContent {
+  color: black;
+  background: #026342;
+  border: 2px solid black;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 100px;
+  padding: 5px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.navDropContent a {
+  color: white;
+  font-size: 24px;
+}
+.navDropContent a:visited {
+  color: white;
+}
+.navButton a:hover {
+  color: black;
+  background: white;
+  font-weight: bold;
+  box-shadow: 0 12px 10px -6px black;
+  padding: 2px;
+  transition-duration: .5s;
+}
+
+.navButton .navDropContent {
+  color: black;
+  display: none;
+  position: absolute;
+}
+/** END NAV BUTTON CONTENT **/
+
+
+
 /** NAV BAR CONTENT **/
 .sitenavigation {
   background-image: linear-gradient(#f9f1cc 10%, #c7cca0);
@@ -916,3 +961,172 @@ footer {
   margin-left: 125px;
   text-align: center;
 }
+
+
+
+/** RESPONSIVE CSS **/
+@media screen and (min-width: 1250px) {
+  .navButton {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+
+  h1, h2, .nav {
+    display: none;
+  }
+
+  .navButton {
+    display: block;
+    float: left;
+  }
+  .navButton:hover {
+    color: black;
+    background-color: white;
+    transition-duration:.3s;
+    box-shadow: 2px 3px black;
+  }
+  .navButton:hover .navDropContent {
+    display: inline-block;
+  }
+  .navButton:hover .navDropContent {
+    display: inline-block;
+  }
+
+  .article-inside {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* HOME PAGE */
+  .home h3 {
+    font-size: 15px;
+  }
+  .spring ul, .summer ul, .fall ul, .winter ul, 
+  .coffee ul, .latte ul, .iced ul, .frapp ul, .pastry ul {
+    float: left;
+    width: auto;
+    margin: 0 auto;
+    color: black;
+    font-size: 14px;
+    text-shadow: none;
+    background: none;
+    border: none;
+    position: inherit;
+    opacity: 1;
+  }
+  .spring:hover ul, .summer:hover ul, .fall:hover ul, .winter:hover ul, 
+  .coffee:hover ul, .latte:hover ul, .iced:hover ul, .frapp:hover ul, .pastry:hover ul {
+    animation: none;
+  }
+  .home h4.menu {
+    letter-spacing: 1px;
+  }
+  .home img {
+    display: none;
+  }
+  .home h4 {
+    border: none;
+    display: inline;
+    font-size: 25px;
+    margin: 20px;
+  }
+  .home p {
+    font-size: 19px;
+    float: left;
+  }
+
+  /* MENU PAGE */
+  .menuSearch {
+    display: none;
+  }
+  #menuDrinks img {
+    display: none;
+  }
+  #menuDrinks h4.menu {
+    letter-spacing: 1px;
+    display: inline;
+    font-size: 25px;
+    margin: 0 auto;
+  }
+
+  /* ABOUT PAGE */
+  iframe {
+    background: none;
+    border: none;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    display: inline-block;
+  }
+  .description img {
+    display: none;
+  }
+  .description h3, .description p {
+    display: inline-block;
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .description h4 {
+    float: left;
+    letter-spacing: 1px;
+    width: 100%;
+  }
+  .description p {
+    font-size: 19px;
+  }
+
+  /* CONTACT PAGE */
+  #outsideStore {
+    display: none;
+  }
+  .socialPlatforms {
+    display: inline-block;
+    width: 80%;
+  }
+  .contactInfo img {
+    display: none;
+  }
+  .contactInfo label, .contactInfo a {
+    width: 90%;
+    font-size: 18px;
+    animation: none;
+  }
+  .social {
+    display: none;
+  }
+  #contactUs {
+    display: none;
+  }
+  #holidayHours {
+    width: 90%;
+    margin: 0 auto;
+  }
+  #holidayHours tr, #holidayHours th, #holidayHours td  {
+    font-size: 12px;
+  }
+
+  /* FOOTER */
+  footer {
+    height: 100px;
+    margin: 0;
+  }
+  footer span {
+    font-size: 8px;
+    display: block;
+  }
+  footer hr {
+    display: none;
+  }
+  #copyRight {
+    font-size: 10px;
+    margin: 0 auto;
+  }
+
+  #toTop {
+    display: none;
+  }
+}
+/** END RESPONSIVE CSS **/

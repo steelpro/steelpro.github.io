@@ -5,6 +5,7 @@
 **/
 
 $(document).ready(function () {
+
 	var contentOffset = getOffset();
 
 	function getOffset() {
