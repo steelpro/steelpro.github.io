@@ -971,7 +971,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1250px), print {
   h1, h2, .nav, .home img, .menuSearch, #menuDrinks img,
   .description img, #outsideStore, .contactInfo img, 
   .social, #contactUs, footer hr, #toTop {
