@@ -284,9 +284,10 @@ a {
   font-weight: bold;
   color: black;
   opacity: 1;
+  text-decoration: none;
+}
+.homeLink:hover {
   text-decoration: underline;
-  animation: pulse 3s linear infinite;
-  -webkit-animation: pulse 3s linear infinite;
 }
 
 .club {
@@ -714,17 +715,10 @@ iframe {
   font-weight: bold;
   color: black;
   opacity: 1;
+  text-decoration: none;
+}
+.contactLink:hover {
   text-decoration: underline;
-  animation: pulse 3s linear infinite;
-  -webkit-animation: pulse 3s linear infinite;
-}
-@keyframes pulse {
-  25%  { opacity: .8; }
-  75%  { opacity: .1; }
-}
-@-webkit-keyframes pulse {
-  25%  { opacity: .8; }
-  75%  { opacity: .1; }
 }
 
 .contactInfo input {
