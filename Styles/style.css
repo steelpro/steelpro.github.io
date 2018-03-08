@@ -214,6 +214,8 @@ body {
 h3 {
   font-family: 'Rubik', sans-serif;
   font-size: 50px;
+  letter-spacing: .12em;
+  font-weight: lighter;
   border-top: 1px solid #026342;
   border-bottom: 1px solid #026342; 
   border-width: 4px;
@@ -515,7 +517,7 @@ iframe {
   background: radial-gradient(circle, white, #026342);
   -webkit-background: radial-gradient(circle, white, #026342);
   border: 6px solid #f4a460;
-  border-radius: 20px; 
+  border-bottom: 6px solid #f4a460;
   width: 40%;
   height: 500px; 
   margin: auto;
@@ -988,11 +990,10 @@ footer {
 
   .article-inside {
     margin: 0 auto;
-    max-width: 95%;
+    max-width: 100%;
   }
 
   /* HOME PAGE */
-
   .home h3 {
     font-size: 15px;
   }
