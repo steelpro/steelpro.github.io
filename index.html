@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+	REACH WORSHIP WEBSITE
+	AUTHOR: ZACHARY BETTERS
+	CREATED: 3/6/2019	
+	LAST MODIFIED: 4/16/2019
+-->
+
+
+
+<head>
+	<title>Reach Worship Delaware</title>
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<meta name="description" content="Reach Worship band in Bear, Delaware. 
+	    Come and see our mission of nothing but Jesus.">
+    <meta name="keywords" content="Reach Worship, Delaware, DE, Nothing But Jesus, 
+        NBJ, worship, band, Reach Church, RW, Reach Worship DE, christian, Jesus, 
+        Jesus Christ, God">
+
+	<link rel="shortcut icon" href="Images/webLogo.ico">
+	<link rel="icon" href="Images/webLogo.ico">
+	<link rel="apple-touch-icon" href="Images/appLogo.ico">
+	<link rel="stylesheet" href="Styles/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Archivo|Raleway|Libre+Baskerville|Oswald|Palanquin" 
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
+		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" 
+		crossorigin="anonymous">    
+
+	<section class="page-top">
+
+		<div class="title" style="background-image: url('Images/HeaderTop.png');">		
+			<div class="header"><span>Come</span><br><span>and</span><br><span>See</span></div>
+		</div>
+
+		<nav class="site-nav" id="site-nav">
+			<ul class="nav">
+				<li><a href="tour.php#site-nav" class="other"><span>Tour</span></a></li>
+				<li><a href="music.php#site-nav" class="other"><span>Music</span></a></li>
+				<li>
+					<a href="index.php#site-nav" class="nav-logo">
+						<img class="reach-home" src="Images/ReachLogo.png" alt="Reach Home Logo">
+					</a>
+				<li>
+				<li><a href="store.php#site-nav" class="other"><span>Store</span></a></li>
+				<li><a href="about.php#site-nav" class="other"><span>About</span></a></li>
+			</ul>
+		</nav>
+	</section>
+</head>
+
+
+
+<?php 		
+	session_start();
+
+	$dbserver = "localhost";
+	$dbusername = "u443538790_zachb";
+	$dbpassword = "@PxPitt3#";
+	$dbname = "u443538790_reach";
+	
+	#CONNECT TO DB WITH CREDENTIALS (CALL OBJECT)
+	$conn = mysqli_connect($dbserver, $dbusername, $dbpassword, $dbname); 		
+
+	#IF NOT CONNECTED
+	if (!$conn) {
+		session_start();
+		$_SESSION['ERROR_MSG'] = "A fatal error has occured! Please check back later.";
+		header("Location: error.php");
+		exit();
+	}		
+
+	if (isset($_SESSION['ERROR_MSG'])) 
+		echo '<script type="text/javascript"> 
+			alert("' . $_SESSION['ERROR_MSG']. '");
+		</script>';	
+	unset($_SESSION['ERROR_MSG']);
+?>
+
+
+
+<body>
+	<?php 	
+	if (isset($_SESSION['LOGGED_IN'])) {
+	?>
+		<div class="user-welcome">
+			<i class="far fa-user-circle"></i>
+			<a href="account.php">Welcome, <?php echo $_SESSION['NAME'] ?></a>
+		</div>
+		<?php 
+		if (isset($_SESSION['CART']) && !empty($_SESSION['CART'])) {
+		?>
+			<div class="user-welcome">
+				<i class="fas fa-shopping-cart"></i>
+				<a href="cart.php">Checkout [<?php echo sizeof($_SESSION['CART']) ?>]</a>
+			</div>
+		<?php 
+		}		
+	}	
+	else {
+	?>
+		<div class="user-welcome">
+			<i class="far fa-user-circle"></i>
+			<a href="login.php">Login</a>
+		</div>
+	<?php 
+	}
+	?>
+	<div class="content">
+		<div class="home">
+			<h2>REACH WORSHIP</h2>
+
+			<div class="home-promo home-tour">
+				<h4>Upcoming Tour Dates</h4>
+
+				<div class="home-tour-promo">
+
+					<div class="home-tour-cover">
+						<img src="Images/Home/RW Tour.png" alt="RW Tour Cover">
+					</div>
+
+					<div class="home-tour-list">
+						
+						<?php 
+						$sql = "SELECT * FROM events LIMIT 3";
+						$result = $conn->query($sql);
+
+						if ($result->num_rows > 0) {
+
+							$counter = 0;
+							while ($row = $result->fetch_assoc()) {
+
+								$datetime = $row["time"];
+								$phpdate = strtotime( $datetime );
+								$datetime = date( 'F j, Y - g:i A', $phpdate );
+								
+								$city = $row["city"];
+								$state = $row["state"];
+								$venue = $row["venue"];
+								$eventid = $row["eventid"];							
+						?>
+								
+								<div class="home-tour-dates">
+									<ul>
+										<li><?php echo $datetime; ?> (EST)</li>
+										<li><?php echo $city ?>, <?php echo $state ?></li>
+										<li><?php echo $venue ?></li>						
+									</ul>
+								</div>											
+						<?php 
+								if ($counter != 2) {
+						?>
+								<hr>
+						<?php
+								}
+								$counter++;
+							}
+						}
+						else {
+							$_SESSION['ERROR_MSG'] = "A fatal error has occured! Please check back later.";
+							header("Location: error.php");
+							exit();
+						}					
+						?>
+						<input type="button" value="Find More Dates" 
+							onclick="window.location = 'tour.php#site-nav';"/>
+					</div>
+				</div>				
+			</div>
+
+			<div class="home-promo home-music-promo">
+				<h4>New Music</h4>
+
+				<div class="home-album-promo albums">
+					<div class="album-cover">
+						<h5>- 2019 -</h5>
+						<img src="Images/Home/AlbumThreeCover.png"  alt="RW Album Cover">
+					</div>
+					<div class="album-songs">
+						<h4>Reach Worship</h4>
+						<ol>
+							<li>Power to Save</li>
+							<li>Love Goes On</li>
+							<li>Kingdom Come</li>
+							<li>First Love</li>
+							<li>Holy</li>
+							<li>A Thousand Hallelujahs</li>
+							<li>God of the Impossible</li>
+							<li>Nothing Else</li>
+							<li>That Day</li>
+							<li>Louder</li>
+						</ol>
+					</div>
+					<input type="button" value="View All Releases"
+						onclick="window.location = 'music.php#site-nav';"/>
+				</div>
+			</div>
+
+			<div class="home-promo home-event-promo">
+				<h4>Reach Church Saturday Night</h4>				
+
+				<img src="Images/Home/RW Event.png"  alt="RW Event Cover" width="1000px">
+
+				<p class="event-descr">With cutting edge music, high energy, and making Nothing But Jesus 
+					real through God's Word, Saturday nights are specifically tailored 
+					to reach the next generation, but all are welcome! Come and see 
+					what the "Nothing but Jesus" movement of the next generation 
+					is all about!
+				</p>		
+
+				<p class="event-details">
+					<br/>
+					<span>When: </span>The third Saturday of every month from 6:30 PM - 8:00 PM
+					<br/>
+					<br/>
+					<span>Where: </span>
+					<a href="https://goo.gl/maps/w8sDfMuZvo52" title="View on Google Maps">
+						Summit Bridge Road Campus, 	2880 Summit Bridge Rd, Bear, DE US 19701
+					</a>
+				</p>		
+			</div>			
+			
+			<div class="home-promo home-store-promo">
+				<h4>Now Available Store Item</h4>
+
+				<div class="home-store">
+					<div class="home-store-cover">
+						<h5>RW T-Shirt (Modern)</h5>
+						<img src="Images/Home/RW Store One.png" alt="RW Store Cover One" width="687px">
+					</div>
+					<div class="home-store-cover">
+						<h5>RW Hoodie (Modern)</h5>
+						<img src="Images/Home/RW Store Two.png" alt="RW Store Cover Two" width="687px">
+					</div>
+
+					<input type="button" value="Visit Store"
+						onclick="window.location = 'store.php#site-nav';"/>
+				</div>
+			</div>			
+
+			<a href="#top">
+				<img class="to-top" title="To top of page" src="Images/topArrow.png" alt="Top of Page">
+			</a>
+		</div>
+	</div>
+
+	<div class="footer">
+		<p class="footer-text">
+			<span>
+				<a href="mailto:info@reachchurch.online?Subject=Hello%20Reach%20Worship!"
+				title="Open email">
+					info@reachchurch.online
+				</a></span>
+			<span>(302) 834-4772</span>			
+			<span>&copy Reach Worship 2019</span>
+			<span>Zachary Betters</span>
+			<span>CSC 487 Senior Project</span>
+		</p>
+		<div class="footer-social">
+			<a href="https://www.facebook.com/NothingButJesus/">
+				<img src="Images/Footer/Facebook.png" alt="Facebook Footer"
+				title="Facebook" width="45" height="45" />
+			</a>
+			<a href="https://www.instagram.com/_reachchurch/?hl=en">
+				<img src="Images/Footer/Instagram.png" alt="Instagram Footer" 
+				title="Instagram" width="45" height="45" />
+			</a>
+			<a href="https://open.spotify.com/artist/2tFNCpPM61936Ah9oN406C">
+				<img src="Images/Footer/Spotify.png" alt="Spotify Footer" 
+				title="Spotify" width="45" height="45" />
+			</a>
+			<span class="stretch"></span>
+		</div>
+	</div>
+</body>
+
+	<script defer src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script defer type="text/javascript" src="Scripts/script.js"></script>	
+</html>
