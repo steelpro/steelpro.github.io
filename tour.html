@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+	REACH WORSHIP WEBSITE
+	AUTHOR: ZACHARY BETTERS
+	CREATED: 3/6/2019	
+	LAST MODIFIED: 4/16/2019
+-->
+
+
+
+<head>
+	<title>Reach Worship Delaware</title>
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<meta name="description" content="Reach Worship band in Bear, Delaware. 
+	    Come and see our mission of nothing but Jesus.">
+    <meta name="keywords" content="Reach Worship, Delaware, DE, Nothing But Jesus, 
+        NBJ, worship, band, Reach Church, RW, Reach Worship DE, christian, Jesus, 
+        Jesus Christ, God">
+		
+	<link rel="shortcut icon" href="Images/webLogo.ico">
+	<link rel="icon" href="Images/webLogo.ico">
+	<link rel="apple-touch-icon" href="Images/appLogo.ico">
+	<link rel="stylesheet" href="Styles/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Archivo|Raleway|Libre+Baskerville|Oswald|Palanquin" 
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
+		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" 
+		crossorigin="anonymous">    
+		
+	
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="Scripts/script.js"></script>	
+
+	<section class="page-top">
+
+		<nav class="site-nav" id="site-nav">
+			<ul class="nav">
+				<li><a href="tour.php#site-nav" class="active"><span>Tour</span></a></li>
+				<li><a href="music.php#site-nav" class="other"><span>Music</span></a></li>
+				<li>
+					<a href="index.php#site-nav" class="nav-logo">
+						<img id="reac-hHome" src="Images/ReachLogo.png" alt="Reach Home Logo">
+					</a>
+				<li>
+				<li><a href="store.php#site-nav" class="other"><span>Store</span></a></li>
+				<li><a href="about.php#site-nav" class="other"><span>About</span></a></li>
+			</ul>
+		</nav>
+	</section>
+</head>
+
+
+
+<body>
+	<div class="content">
+		<div class="tour">
+			<h2>FIND US ON TOUR</h2>
+
+			<div class="tour-list">
+				<h3>Tour Dates</h3>				
+						<div class="tour-dates">							
+							<ul>
+								<li>10/20 8:00PM (EST)</li>
+								<li>Philadelphia, PA</li>
+								<li>Penn's Landing</li>
+							</ul>
+
+							<hr>
+							<form action="Scripts/getTicket.php" method="post">
+								<button type="submit" class="ticket-link link" name="order-ticket-btn" 
+									value=<?php echo $eventid ?>>-Tickets-</button>
+							</form>
+						</div>
+			</div>
+
+			<div style="clear: both"></div>
+
+			<div class="find-tour">
+				<h3>Tours Near You</h3>
+
+				<div class="tour-map" id="tour-map">
+					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAto_OmdAPrmOFUSemb65SGtMLczf9FFOU&callback=initMap"
+					async defer>
+					</script>
+				</div>
+
+				<form class="location-form">
+					<label for="city">City:</label>
+					<input type="text" id="city" name="city" placeholder="New York City">
+
+					<label for="state">State:</label>
+					<input type="text" id="state" name="state" placeholder="NY">
+
+					<label for="country">Country:</label>
+					<input type="text" id="country" name="country" placeholder="US"><br>
+
+					<input type="button" class="loc-button" name="auto-fill" 
+						value="Autofill" onclick="return getLocation();" />
+						
+					<input type="button" class="loc-button" name="location-form-submit" 
+						value="Find" onclick="return checkDistance();" />
+				</form>				
+			</div>
+
+			<a href="#top">
+				<img class="to-top" title="To top of page" src="Images/topArrow.png" alt="Top of Page">
+			</a>
+		</div>
+	</div>
+
+	<div class="footer">
+		<p class="footer-text">
+			<span>
+				<a href="mailto:info@reachchurch.online?Subject=Hello%20Reach%20Worship!"
+				title="Open email">
+					info@reachchurch.online
+				</a></span>
+			<span>(302) 834-4772</span>			
+			<span>&copy Reach Worship 2019</span>
+			<span>Zachary Betters</span>
+			<span>CSC 487 Senior Project</span>
+		</p>
+		<div class="footer-social">
+			<a href="https://www.facebook.com/NothingButJesus/">
+				<img src="Images/Footer/Facebook.png" alt="Facebook Footer"
+				title="Facebook" width="45" height="45" />
+			</a>
+			<a href="https://www.instagram.com/_reachchurch/?hl=en">
+				<img src="Images/Footer/Instagram.png" alt="Instagram Footer" 
+				title="Instagram" width="45" height="45" />
+			</a>
+			<a href="https://open.spotify.com/artist/2tFNCpPM61936Ah9oN406C">
+				<img src="Images/Footer/Spotify.png" alt="Spotify Footer" 
+				title="Spotify" width="45" height="45" />
+			</a>
+			<span class="stretch"></span>
+		</div>
+	</div>
+</body>
+</html>
