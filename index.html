@@ -56,61 +56,7 @@
 
 
 
-<?php 		
-	session_start();
-
-	$dbserver = "localhost";
-	$dbusername = "u443538790_zachb";
-	$dbpassword = "@PxPitt3#";
-	$dbname = "u443538790_reach";
-	
-	#CONNECT TO DB WITH CREDENTIALS (CALL OBJECT)
-	$conn = mysqli_connect($dbserver, $dbusername, $dbpassword, $dbname); 		
-
-	#IF NOT CONNECTED
-	if (!$conn) {
-		session_start();
-		$_SESSION['ERROR_MSG'] = "A fatal error has occured! Please check back later.";
-		header("Location: error.php");
-		exit();
-	}		
-
-	if (isset($_SESSION['ERROR_MSG'])) 
-		echo '<script type="text/javascript"> 
-			alert("' . $_SESSION['ERROR_MSG']. '");
-		</script>';	
-	unset($_SESSION['ERROR_MSG']);
-?>
-
-
-
-<body>
-	<?php 	
-	if (isset($_SESSION['LOGGED_IN'])) {
-	?>
-		<div class="user-welcome">
-			<i class="far fa-user-circle"></i>
-			<a href="account.php">Welcome, <?php echo $_SESSION['NAME'] ?></a>
-		</div>
-		<?php 
-		if (isset($_SESSION['CART']) && !empty($_SESSION['CART'])) {
-		?>
-			<div class="user-welcome">
-				<i class="fas fa-shopping-cart"></i>
-				<a href="cart.php">Checkout [<?php echo sizeof($_SESSION['CART']) ?>]</a>
-			</div>
-		<?php 
-		}		
-	}	
-	else {
-	?>
-		<div class="user-welcome">
-			<i class="far fa-user-circle"></i>
-			<a href="login.php">Login</a>
-		</div>
-	<?php 
-	}
-	?>
+<body>	
 	<div class="content">
 		<div class="home">
 			<h2>REACH WORSHIP</h2>
@@ -124,51 +70,7 @@
 						<img src="Images/Home/RW Tour.png" alt="RW Tour Cover">
 					</div>
 
-					<div class="home-tour-list">
-						
-						<?php 
-						$sql = "SELECT * FROM events LIMIT 3";
-						$result = $conn->query($sql);
-
-						if ($result->num_rows > 0) {
-
-							$counter = 0;
-							while ($row = $result->fetch_assoc()) {
-
-								$datetime = $row["time"];
-								$phpdate = strtotime( $datetime );
-								$datetime = date( 'F j, Y - g:i A', $phpdate );
-								
-								$city = $row["city"];
-								$state = $row["state"];
-								$venue = $row["venue"];
-								$eventid = $row["eventid"];							
-						?>
-								
-								<div class="home-tour-dates">
-									<ul>
-										<li><?php echo $datetime; ?> (EST)</li>
-										<li><?php echo $city ?>, <?php echo $state ?></li>
-										<li><?php echo $venue ?></li>						
-									</ul>
-								</div>											
-						<?php 
-								if ($counter != 2) {
-						?>
-								<hr>
-						<?php
-								}
-								$counter++;
-							}
-						}
-						else {
-							$_SESSION['ERROR_MSG'] = "A fatal error has occured! Please check back later.";
-							header("Location: error.php");
-							exit();
-						}					
-						?>
-						<input type="button" value="Find More Dates" 
-							onclick="window.location = 'tour.php#site-nav';"/>
+					<div class="home-tour-list">							
 					</div>
 				</div>				
 			</div>
